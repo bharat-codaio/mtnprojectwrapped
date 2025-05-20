@@ -11,8 +11,8 @@ def index():
 @app.route('/upload', methods=['POST'])
 def upload():
     data = None
-    uploaded_file = request.files['csvFile']
-    if uploaded_file:
+    uploaded_file = request.files.get('csvFile')
+    if uploaded_file and uploaded_file.filename:
         data = pd.read_csv(uploaded_file)
     else:
         url = request.form["profileURL"]
