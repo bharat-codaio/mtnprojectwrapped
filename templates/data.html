@@ -423,8 +423,7 @@
                     }
                 } catch (err) {
                     console.log('Falling back to server-side sharing:', err);
-                    
-                    // Server-side fallback
+                    // Server-side fallback using the "/save-image" endpoint
                     try {
                         const imageData = canvas.toDataURL('image/png');
                         const response = await fetch('/save-image', {
